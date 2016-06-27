@@ -1,0 +1,30 @@
+{
+  "name": "highlight-term.js",
+  "version": "1.0.0",
+  "description": "highlight language with highlight.js but in terminal(use in node.js).",
+  "main": "index.js",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "highlight.js": "^9.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jetzhliu/highlight-term.js.git"
+  },
+  "keywords": [
+    "highlight.js",
+    "terminal",
+    "node.js",
+    "chalk"
+  ],
+  "author": "jetzhliu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jetzhliu/highlight-term.js/issues"
+  },
+  "homepage": "https://github.com/jetzhliu/highlight-term.js#readme"
+}
