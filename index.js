@@ -62,6 +62,12 @@ function getStyle(type) {
 	}
 }
 
+
+function unescape(value) {
+	return value.replace(/&amp;/gm, '&').replace(/&lt;/gm, '<').replace(/&gt;/gm, '>');
+}
+
+
 // raw: function testErr1() {
 // hljs output: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">testErr1</span>(<span class="hljs-params"></span>) </span>{
 // expect: 
@@ -101,7 +107,7 @@ function code2obj(str) {
 	var m;
 	while (todo && (m = todo.match(/<\/?span.*?>/))) {
 		if (m.index) {
-			cur.push(todo.slice(0, m.index));
+			cur.push(unescape(todo.slice(0, m.index)));
 		}
 		if (m[0] === '</span>') {
 			paths.pop();
@@ -162,18 +168,3 @@ module.exports = {
 	highlight: highlight,
 	highlightAuto: highlightAuto,
 };
-
-if (require.main && require.main.filename === __filename) {
-	if (process.argv.length <=2 ) {
-		console.log('usage: node hljs-term.js <filename> [lang]');
-		process.exit(1);
-	}
-	var fs = require('fs');
-	var text = fs.readFileSync(process.argv[2], 'utf8');
-	var lang = process.argv[3];
-	if (lang) {
-		console.log(highlight(lang, text).value);
-	} else {
-		console.log(highlightAuto(text).value);
-	}
-}

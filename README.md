@@ -18,10 +18,11 @@ npm install highlight-term.js -g
 
 # use in term
 # cat-hl <filename> [language]
-cat-hl package.json json
-cat-hl index.js js
+hl package.json json
+hl index.js js
 ```
 
 ### screenshot
 
+![js format](screenshot/js.png)
 ![json format](screenshot/json.png)

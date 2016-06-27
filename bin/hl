@@ -1,4 +1,4 @@
-#!/bin/env node
+#!/usr/bin/env node
 var hljs = require('..');
 if (process.argv.length <=2 ) {
 	console.log('usage: node hljs-term.js <filename> [lang]');
