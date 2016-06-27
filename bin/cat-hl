@@ -1,0 +1,14 @@
+#!/bin/env node
+var hljs = require('..');
+if (process.argv.length <=2 ) {
+	console.log('usage: node hljs-term.js <filename> [lang]');
+	process.exit(1);
+}
+var fs = require('fs');
+var text = fs.readFileSync(process.argv[2], 'utf8');
+var lang = process.argv[3];
+if (lang) {
+	console.log(hljs.highlight(lang, text).value);
+} else {
+	console.log(hljs.highlightAuto(text).value);
+}
