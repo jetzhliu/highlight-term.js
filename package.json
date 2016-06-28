@@ -1,6 +1,6 @@
 {
   "name": "highlight-term.js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "highlight language with highlight.js but in terminal(use in node.js).",
   "main": "index.js",
   "bin": {
