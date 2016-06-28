@@ -39,9 +39,8 @@ function getStyle(type) {
 			return chalk.red;
 		case 'hljs-symbol':
 		case 'hljs-attribute':
-			return chalk.cyan;
 		case 'hljs-params':
-			return chalk.white;
+			return chalk.cyan;
 		case 'hljs-string':
 		case 'hljs-type':
 		case 'hljs-built_in':
@@ -164,7 +163,7 @@ function highlightAuto(text, languageSubset) {
 	return ret;
 }
 
-module.exports = {
+module.exports = Object.assign({}, hljs, chalk, {
 	highlight: highlight,
 	highlightAuto: highlightAuto,
-};
+});
