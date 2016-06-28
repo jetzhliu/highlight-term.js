@@ -5,8 +5,25 @@ if (process.argv.length <=2 ) {
 	process.exit(1);
 }
 var fs = require('fs');
-var text = fs.readFileSync(process.argv[2], 'utf8');
+var path = require('path');
+var filePath = process.argv[2];
+var text = fs.readFileSync(filePath, 'utf8');
 var lang = process.argv[3];
+// sometime the language name and it's alias is the file's ext name
+var extMap = Object.create(null);
+hljs.listLanguages().forEach(function (langName) {
+	extMap[langName] = langName;
+	var aliases = hljs.getLanguage(langName).aliases;
+	if (aliases) {
+		aliases.forEach(function (alias) {
+			extMap[alias] = langName;
+		});
+	}
+});
+if (!lang) {
+	var ext = path.extname(filePath);
+	lang = ext && extMap[ext.slice(1)];
+}
 if (lang) {
 	console.log(hljs.highlight(lang, text).value);
 } else {
